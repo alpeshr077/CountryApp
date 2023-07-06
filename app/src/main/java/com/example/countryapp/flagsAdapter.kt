@@ -10,7 +10,7 @@ import com.example.countryapp.databinding.FlagsBinding
 
 class flagsAdapter:RecyclerView.Adapter<flagsAdapter.flagsholder>() {
 
-    var flags =ArrayList<List<CountryModel>>()
+    var image =ArrayList<List<Flags>>()
     lateinit var context: Context
     class flagsholder(itemView: FlagsBinding) : ViewHolder(itemView.root) {
         var binding=itemView
@@ -23,19 +23,17 @@ class flagsAdapter:RecyclerView.Adapter<flagsAdapter.flagsholder>() {
     }
 
     override fun getItemCount(): Int {
-        return flags.size
+        return image.size
     }
 
     override fun onBindViewHolder(holder: flagsholder, position: Int) {
         holder.binding.apply {
-            flags.get(position).apply {
-                Glide.with(context).load(flags).into(imgImage)
+            image.get(position).apply {
+
+                Glide.with(context).load(image).into(imgPhotos)
             }
         }
 
     }
 
-    fun setflags(data: String?) {
-        this.flags=data as ArrayList<List<CountryModel>>
-    }
 }

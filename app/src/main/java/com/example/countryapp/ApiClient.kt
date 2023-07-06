@@ -5,7 +5,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
 
-
     companion object {
 
         val BASE_URL = "https://restcountries.com/v2/"

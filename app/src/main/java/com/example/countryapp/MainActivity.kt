@@ -1,7 +1,7 @@
 package com.example.countryapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.countryapp.databinding.ActivityMainBinding
 import retrofit2.Call
@@ -17,11 +17,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        adapter = flagsAdapter()
 
-        adapter= flagsAdapter()
-        binding.btnSubmit.setOnClickListener {
-            callApi()
-        }
+        callApi()
 
     }
 
@@ -35,12 +33,12 @@ class MainActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful){
 
-                    var data = response.body()?.get(0)?.flags?.png
+                    var photos = response.body()?.get(0)?.flag
 
-                    adapter.setflags(data)
+
+
                     binding.rcvflags.layoutManager=GridLayoutManager(this@MainActivity,1)
                     binding.rcvflags.adapter=adapter
-
 
                 }
             }
