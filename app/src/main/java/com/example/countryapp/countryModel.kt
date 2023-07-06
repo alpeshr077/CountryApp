@@ -17,7 +17,7 @@ data class RegionalBlocsItem(
 	val otherAcronyms: List<String?>? = null
 )
 
-data class CountryModelItem(
+data class CountryModel(
 
 	@field:SerializedName("nativeName")
 	val nativeName: String? = null,
@@ -155,11 +155,6 @@ data class Translations(
 	val es: String? = null
 )
 
-data class CountryModel(
-
-	@field:SerializedName("countryModel")
-	val countryModel: List<CountryModelItem?>? = null
-)
 
 data class LanguagesItem(
 
