@@ -2,20 +2,7 @@ package com.example.countryapp
 
 import com.google.gson.annotations.SerializedName
 
-data class RegionalBlocsItem(
 
-	@field:SerializedName("acronym")
-	val acronym: String? = null,
-
-	@field:SerializedName("name")
-	val name: String? = null,
-
-	@field:SerializedName("otherNames")
-	val otherNames: List<String?>? = null,
-
-	@field:SerializedName("otherAcronyms")
-	val otherAcronyms: List<String?>? = null
-)
 
 data class CountryModel(
 
@@ -72,9 +59,6 @@ data class CountryModel(
 
 	@field:SerializedName("callingCodes")
 	val callingCodes: List<String?>? = null,
-
-	@field:SerializedName("regionalBlocs")
-	val regionalBlocs: List<RegionalBlocsItem?>? = null,
 
 	@field:SerializedName("gini")
 	val gini: Any? = null,
@@ -154,7 +138,6 @@ data class Translations(
 	@field:SerializedName("es")
 	val es: String? = null
 )
-
 
 data class LanguagesItem(
 

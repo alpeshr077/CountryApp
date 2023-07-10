@@ -8,31 +8,37 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.countryapp.databinding.FlagsBinding
 
-class flagsAdapter:RecyclerView.Adapter<flagsAdapter.flagsholder>() {
+class flagsAdapter : RecyclerView.Adapter<flagsAdapter.flagsholder>() {
 
-    var image =ArrayList<List<Flags>>()
+    lateinit var list: List<CountryModel>
     lateinit var context: Context
+
     class flagsholder(itemView: FlagsBinding) : ViewHolder(itemView.root) {
-        var binding=itemView
+        var binding = itemView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): flagsholder {
-        context=parent.context
-        var binding = FlagsBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        context = parent.context
+        var binding = FlagsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return flagsholder(binding)
     }
 
     override fun getItemCount(): Int {
-        return image.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: flagsholder, position: Int) {
-        holder.binding.apply {
-            image.get(position).apply {
 
-                Glide.with(context).load(image).into(imgPhotos)
+        holder.binding.apply {
+            list.get(position).apply {
+                Glide.with(context).load(flags?.png).into(imgPhotos)
             }
         }
+
+    }
+
+    fun setdata(data: Flags?) {
+        this.list = data as List<CountryModel>
 
     }
 

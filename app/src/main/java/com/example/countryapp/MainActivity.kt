@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var adapter: flagsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -33,9 +34,9 @@ class MainActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful){
 
-                    var photos = response.body()?.get(0)?.flag
+                    var data = response.body()?.get(0)?.flags
 
-
+                    adapter.setdata(data)
 
                     binding.rcvflags.layoutManager=GridLayoutManager(this@MainActivity,1)
                     binding.rcvflags.adapter=adapter
