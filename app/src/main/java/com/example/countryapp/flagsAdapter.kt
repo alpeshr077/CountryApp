@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.countryapp.databinding.FlagsBinding
 
-class flagsAdapter : RecyclerView.Adapter<flagsAdapter.flagsholder>() {
+class flagsAdapter: RecyclerView.Adapter<flagsAdapter.flagsholder>() {
 
     lateinit var list: List<CountryModel>
     lateinit var context: Context
@@ -32,13 +32,19 @@ class flagsAdapter : RecyclerView.Adapter<flagsAdapter.flagsholder>() {
         holder.binding.apply {
             list.get(position).apply {
                 Glide.with(context).load(flags?.png).into(imgPhotos)
+                txtName.text = name
+                txtCapital.text = capital
+                txtCode.text = callingCodes.toString()
+                txtArea.text = area.toString()
+
             }
+
         }
 
     }
 
-    fun setdata(data: Flags?) {
-        this.list = data as List<CountryModel>
+    fun setdata(list1: List<CountryModel>) {
+        this.list = list1
 
     }
 
