@@ -2,8 +2,6 @@ package com.example.countryapp
 
 import com.google.gson.annotations.SerializedName
 
-
-
 data class CountryModel(
 
 	@field:SerializedName("nativeName")
