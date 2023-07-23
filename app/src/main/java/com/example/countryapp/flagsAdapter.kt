@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.countryapp.databinding.FlagsBinding
+import java.util.ArrayList
 
-class flagsAdapter: RecyclerView.Adapter<flagsAdapter.flagsholder>() {
+class flagsAdapter(countryModel: ArrayList<CountryModel>,clicknow: ClickHere) : RecyclerView.Adapter<flagsAdapter.flagsholder>() {
 
-    lateinit var list: List<CountryModel>
+    var list = countryModel
     lateinit var context: Context
+    var Clicknow = clicknow
 
     class flagsholder(itemView: FlagsBinding) : ViewHolder(itemView.root) {
         var binding = itemView
@@ -37,14 +39,13 @@ class flagsAdapter: RecyclerView.Adapter<flagsAdapter.flagsholder>() {
                 txtCode.text = callingCodes.toString()
                 txtArea.text = area.toString()
 
+                holder.itemView.setOnClickListener {
+                    Clicknow.onclick(position)
+                }
+
             }
 
         }
-
-    }
-
-    fun setdata(list1: List<CountryModel>) {
-        this.list = list1
 
     }
 
